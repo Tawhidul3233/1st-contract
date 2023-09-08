@@ -1,29 +1,16 @@
-// SPDX-License-Identifier: GPL-3.0
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
 
-pragma solidity >=0.8.2 <0.9.0;
+contract SimpleStorage {
+    uint256 public storedData; // This will store our integer data.
 
-/**
- * @title Storage
- * @dev Store & retrieve value in a variable
- * @custom:dev-run-script ./scripts/deploy_with_ethers.ts
- */
-contract Storage {
-
-    uint256 number;
-
-    /**
-     * @dev Store value in variable
-     * @param num value to store
-     */
-    function store(uint256 num) public {
-        number = num;
+    // Function to set the storedData value.
+    function set(uint256 _value) public {
+        storedData = _value;
     }
 
-    /**
-     * @dev Return value 
-     * @return value of 'number'
-     */
-    function retrieve() public view returns (uint256){
-        return number;
+    // Function to get the storedData value.
+    function get() public view returns (uint256) {
+        return storedData;
     }
 }
